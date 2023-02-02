@@ -62,7 +62,10 @@ const clipsInDays = [
               <li class="flex flex-col">
                 <a href={clip.url}>{clip.url}</a>
                 <iframe
-                  src={clip.embed_url + `&parent=localhost`}
+                  src={
+                    clip.embed_url +
+                    `&parent=localhost&parent=bens-clips.vercel.app`
+                  }
                   width="624"
                   height="351"
                   allowfullscreen="true"
