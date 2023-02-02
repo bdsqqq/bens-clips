@@ -1,15 +1,77 @@
 ---
+const clipsInDays = [
+  {
+    date: "2023-02-02",
+    clips: [
+      {
+        url: "https://clips.twitch.tv/BoredInventiveGarlicRedCoat-0THriOJqsFd8GRW2",
+        embed_url:
+          "https://clips.twitch.tv/embed?clip=BoredInventiveGarlicRedCoat-0THriOJqsFd8GRW2",
+      },
+      {
+        url: "https://clips.twitch.tv/DarkQuaintGorillaStinkyCheese-2HgorUcLG6cd0pZh",
+        embed_url:
+          "https://clips.twitch.tv/embed?clip=DarkQuaintGorillaStinkyCheese-2HgorUcLG6cd0pZh",
+      },
+      {
+        url: "https://clips.twitch.tv/SpookyPunchyButterTheRinger-h5EHYmbgSM5tmahM",
+        embed_url:
+          "https://clips.twitch.tv/embed?clip=SpookyPunchyButterTheRinger-h5EHYmbgSM5tmahM",
+      },
+      {
+        url: "https://clips.twitch.tv/BlueAbrasiveQueleaBibleThump-B368oLP1Uo_OQZpN",
+        embed_url:
+          "https://clips.twitch.tv/embed?clip=BlueAbrasiveQueleaBibleThump-B368oLP1Uo_OQZpN",
+      },
+      {
+        url: "https://clips.twitch.tv/AthleticAgreeableIcecreamWOOP-_nHpZV4vtT_9wkCV",
+        embed_url:
+          "https://clips.twitch.tv/embed?clip=AthleticAgreeableIcecreamWOOP-_nHpZV4vtT_9wkCV",
+      },
+      {
+        url: "https://clips.twitch.tv/SmoothResoluteMinkTheThing-jyVLYzz_nJ0L4SF5",
+        embed_url:
+          "https://clips.twitch.tv/embed?clip=SmoothResoluteMinkTheThing-jyVLYzz_nJ0L4SF5",
+      },
+    ],
+  },
+];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Ben's makeshift clips channel</title>
+  </head>
+  <body>
+    <h1>
+      I swear I was going to make something ellaborate with confetti buttons and
+      framer-motion animations but I gave up. At least this is Astro so on
+      brand??
+    </h1>
+
+    {
+      clipsInDays.map((day) => (
+        <>
+          <h2>{day.date}</h2>
+          <ul class="flex flex-col gap-6">
+            {day.clips.map((clip) => (
+              <li class="flex flex-col">
+                <a href={clip.url}>{clip.url}</a>
+                <iframe
+                  src={clip.embed_url + `&parent=localhost`}
+                  width="624"
+                  height="351"
+                  allowfullscreen="true"
+                />
+              </li>
+            ))}
+          </ul>
+        </>
+      ))
+    }
+  </body>
 </html>
